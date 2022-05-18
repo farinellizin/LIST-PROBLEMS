@@ -1,4 +1,5 @@
 #include "linearlist.hpp"
+#include "dynamiclist.hpp"
 
 int main () {
     char option;
@@ -20,7 +21,8 @@ int main () {
             break;
 
         case 'C':
-            cout << "not ready yet...";
+            problem_1_c();
+            //cout << "not ready yet...";
             break;
 
         case 'D':

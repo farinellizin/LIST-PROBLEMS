@@ -68,6 +68,9 @@ void problem_1_b() {
     List list_1, list_2;
     int intermediate_value, sum_list_1, sum_list_2;
 
+    cout << endl << endl << "-------------------------------------------------------------------------------------";
+    cout << endl << endl << "\t\t\t\t    Loading..." << endl << endl;
+
     create_empty_list(&list_1);
     create_empty_list(&list_2);
 
@@ -75,7 +78,7 @@ void problem_1_b() {
     sleep(1);
     fill_list_ramdomly(&list_2);
 
-    cout << "\t\t- Both lists presented by its parity positions: " << endl;
+    cout << endl << "\t\t- Both lists presented by its parity positions: " << endl;
     sequencial_reading(&list_1, &list_2);
     
     sleep(1);
@@ -90,10 +93,9 @@ void problem_1_b() {
     sequencial_reading(&list_1, &list_2);
     
     sum_list_1 = list_sum(&list_1);
-    cout << "\t\t- Player 1, your cards value is: " << sum_list_1 << endl;
+    cout << "\t\t- Player 1, your cards value's is: " << sum_list_1 << endl;
     sum_list_2 = list_sum(&list_2);
-    cout << "\t\t- Player 2, your cards value is: " << sum_list_2 << endl << endl;
-
+    cout << "\t\t- Player 2, your cards value's is: " << sum_list_2 << endl << endl;
 
     decide_winner(sum_list_1, sum_list_2);
 }
