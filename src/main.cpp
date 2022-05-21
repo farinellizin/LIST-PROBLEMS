@@ -81,6 +81,34 @@ int main () {
     
     // TESTING FUNCTION THAT REMOVES THE FIRST VALUE OF A LIST UNTIL IT'S EMPTY
 
+    // DList a;
+    // DFLVazia(&a);
+    // DItem aux;
+
+    // aux.val = 10;
+    // DLInsert(&a, aux);  
+    
+    // aux.val = 4;
+    // DLInsert(&a, aux);
+    
+    // aux.val = 19;
+    // DLInsert(&a, aux);
+    
+    // aux.val = 31;
+    // DLInsert(&a, aux);
+
+    // cout << "LIST BEFORE FIRST VALUE REMOVAL: " << endl << endl;
+    // DLImprime(&a);
+    // cout << endl << endl;
+
+    // while (!list_is_empty(&a)) {
+    //     cout << endl << endl << "LIST WHILE IT'S VALUES ARE BEEN REMOVED: " << endl << endl;
+    //     list_remove_first(&a);
+    //     DLImprime(&a);
+    // }
+
+    // TESTING FUNCTION THAT REMOVES THE LAST VALUE OF A LIST UNTIL IT'S EMPTY 
+
     DList a;
     DFLVazia(&a);
     DItem aux;
@@ -97,15 +125,40 @@ int main () {
     aux.val = 31;
     DLInsert(&a, aux);
 
-    cout << "LIST BEFORE FIRST VALUE REMOVAL: " << endl << endl;
+    cout << "LIST BEFORE LAST VALUE REMOVAL: " << endl << endl;
     DLImprime(&a);
-    cout << endl << endl;
+    cout << endl;
 
-    while (!list_is_empty(&a)) {
-        cout << endl << endl << "LIST WHILE IT'S VALUES ARE BEEN REMOVED: " << endl << endl;
-        list_remove_first(&a);
-        DLImprime(&a);
-    }
+    list_remove_last(&a);
+
+    cout << endl;
+
+    cout << "LIST AFTER LAST VALUE REMOVAL: " << endl << endl;
+    DLImprime(&a);
+
+    list_remove_last(&a);
+
+    cout << endl;
+
+    cout << "LIST AFTER LAST VALUE REMOVAL: " << endl << endl;
+    DLImprime(&a);
+
+    list_remove_last(&a);
+
+    cout << endl;
+
+    cout << "LIST AFTER LAST VALUE REMOVAL: " << endl << endl;
+    DLImprime(&a);
+
+    list_remove_last(&a);
+
+    cout << endl;
+
+    cout << "LIST AFTER LAST VALUE REMOVAL: " << endl << endl;
+    DLImprime(&a);
+
+    
+
 
 
     //problem_1_c();

@@ -99,9 +99,40 @@ bool list_is_empty(DList *l) {
 	}
 }
 
-// void list_remove_last(DList *l) {
+void list_remove_last(DList *l) {
+	Block *aux, *tmp;
 	
-// }
+	aux = l -> last;
+	tmp = l -> first;
+
+	//cout << "VALOR EM L -> LAST: " << aux -> data.val << endl << endl;;
+
+	// cout << "VALOR DE TMP: " << tmp << endl;
+	// tmp = tmp -> prox -> prox -> prox -> prox;
+	// cout << "VALOR DE TMP FINAL: " << tmp << endl;
+	// cout << "VALOR DE AUX FINAL: " << aux << endl;
+	
+	//int cont = 0;
+	cout << endl << "VALOR DE AUX: " << l -> last -> data.val << endl;
+	cout << "VALOR DE TMP: " << tmp -> prox -> data.val << endl << endl;
+
+	while (tmp -> prox != NULL) {
+		cout << "MEMÓRIA DE TMP FINAL: " << tmp << "\tVALOR DE TMP FINAL: " << tmp -> data.val << endl;
+		cout << "MEMÓRIA DE AUX FINAL: " << aux << "\tVALOR DE AUX FINAL: " << aux -> data.val << endl << endl << endl;
+		//tmp = tmp -> prox;
+
+		if (tmp -> prox == aux) {
+			l -> last = tmp;
+			tmp -> prox = NULL;
+			cout << "EUREKA!!!" << endl;
+		} else {
+			tmp = tmp -> prox;
+			cout << "NOT EUREKA!!!" << endl;
+		}
+	}
+
+	free(aux);	
+}
 
 void list_remove_first(DList *l) {
 	Block *aux, *tmp;
