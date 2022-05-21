@@ -105,29 +105,12 @@ void list_remove_last(DList *l) {
 	aux = l -> last;
 	tmp = l -> first;
 
-	//cout << "VALOR EM L -> LAST: " << aux -> data.val << endl << endl;;
-
-	// cout << "VALOR DE TMP: " << tmp << endl;
-	// tmp = tmp -> prox -> prox -> prox -> prox;
-	// cout << "VALOR DE TMP FINAL: " << tmp << endl;
-	// cout << "VALOR DE AUX FINAL: " << aux << endl;
-	
-	//int cont = 0;
-	// cout << endl << "VALOR DE AUX: " << l -> last -> data.val << endl;
-	// cout << "VALOR DE TMP: " << tmp -> prox -> data.val << endl << endl;
-
 	while (tmp -> prox != NULL) {
-		// cout << "MEMÓRIA DE TMP FINAL: " << tmp << "\tVALOR DE TMP FINAL: " << tmp -> data.val << endl;
-		// cout << "MEMÓRIA DE AUX FINAL: " << aux << "\tVALOR DE AUX FINAL: " << aux -> data.val << endl << endl << endl;
-		//tmp = tmp -> prox;
-
 		if (tmp -> prox == aux) {
 			l -> last = tmp;
 			tmp -> prox = NULL;
-			//cout << "EUREKA!!!" << endl;
 		} else {
 			tmp = tmp -> prox;
-			//cout << "NOT EUREKA!!!" << endl;
 		}
 	}
 
@@ -158,9 +141,31 @@ void list_remove_first(DList *l) {
 // 	cout << endl << "TESTE ->" << aux_final -> data.val;
 // }
 
-// void fill_final_list(DList *biggest, DList *smallest, DList *final) {
+void fill_final_list(DList *biggest, DList *smallest/*, DList *final*/) {
+	// posição final da menor
+	// posição inicial da maior
+	
+	DItem aux_biggest;
+	DItem aux_smallest;
+	//DItem aux_final;
+	Block *aux_biggest_block;
+	Block *aux_smallest_block;
+	aux_biggest_block = biggest -> first -> prox;
+	aux_smallest_block = smallest -> last;
+	//while (!list_is_empty(smallest)) {
+		//aux_biggest.val = biggest -> first -> prox -> data.val;
+		cout << endl << "VALUES OF THE BIGGEST LIST: " << endl << endl;
+		aux_biggest.val = aux_biggest_block -> data.val;
+		cout << endl << "\taux.val_biggest[0] = " << aux_biggest.val << endl;
+		aux_biggest_block = aux_biggest_block -> prox;
+		aux_biggest.val = aux_biggest_block -> data.val;
+		cout << endl << "\taux.val_biggest[1] = " << aux_biggest.val << endl << endl;
 
-// }
+		cout << "VALUES OF THE SMALLEST LIST: " << endl << endl;
+		aux_smallest.val = aux_smallest_block -> data.val;
+		cout << endl << "\taux.val_smallest[3] = " << aux_smallest.val;
+	//}
+}
 
 void problem_1_c() {	
     DList x, y, z;

@@ -109,33 +109,70 @@ int main () {
 
     // TESTING FUNCTION THAT REMOVES THE LAST VALUE OF A LIST UNTIL IT'S EMPTY 
 
-    DList a;
-    DFLVazia(&a);
+    // DList a;
+    // DFLVazia(&a);
+    // DItem aux;
+
+    // aux.val = 10;
+    // DLInsert(&a, aux);  
+    
+    // aux.val = 4;
+    // DLInsert(&a, aux);
+    
+    // aux.val = 19;
+    // DLInsert(&a, aux);
+    
+    // aux.val = 31;
+    // DLInsert(&a, aux);
+
+    // cout << "LIST BEFORE LAST VALUE REMOVAL: " << endl << endl;
+    // DLImprime(&a);
+    // cout << endl;
+    
+    // while (!list_is_empty(&a)) {
+    //     cout << endl << endl << "LIST WHILE IT'S VALUES ARE BEING REMOVED: " << endl << endl;
+    //     list_remove_last(&a);
+    //     DLImprime(&a);
+    // }
+
+    // TESTING FUNCTION TO MULTIPLY THE LAST VALUE OF A SMALLER LIST TO THE FIRST VALUE OF A BIGGER ONE 
+
+    DList maior, menor;
+    DFLVazia(&maior);
+    DFLVazia(&menor);
     DItem aux;
 
     aux.val = 10;
-    DLInsert(&a, aux);  
+    DLInsert(&maior, aux);  
     
     aux.val = 4;
-    DLInsert(&a, aux);
+    DLInsert(&maior, aux);
     
     aux.val = 19;
-    DLInsert(&a, aux);
+    DLInsert(&maior, aux);
     
     aux.val = 31;
-    DLInsert(&a, aux);
+    DLInsert(&maior, aux);
 
-    cout << "LIST BEFORE LAST VALUE REMOVAL: " << endl << endl;
-    DLImprime(&a);
-    cout << endl;
-    
-    while (!list_is_empty(&a)) {
-        cout << endl << endl << "LIST WHILE IT'S VALUES ARE BEING REMOVED: " << endl << endl;
-        list_remove_last(&a);
-        DLImprime(&a);
-    }
+    cout << endl << endl << "\t\t- PRINTING FIRST LIST: " << endl << "\t\t";
+    DLImprime(&maior);
 
+    aux.val = 21;
+    DLInsert(&menor, aux);  
     
+    aux.val = 19;
+    DLInsert(&menor, aux);
+    
+    aux.val = 40;
+    DLInsert(&menor, aux);
+    
+    aux.val = 78;
+    DLInsert(&menor, aux);
+
+    cout << endl << endl << "\t\t- PRINTING SECOND LIST: " << endl << "\t\t";
+    DLImprime(&menor);
+
+    fill_final_list(&maior, &menor);
 
 
 
