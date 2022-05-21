@@ -65,13 +65,13 @@ int define_list_tam() {
 
 int define_smallest(int x, int y) {
     if (x > y) {
-        return y;
+        return 0;
     } else if (x < y) {
-        return x;
+        return 1;
     } else {
-        return x;
+        return 2;
     }
-}   
+}
 
 // retornar 0: maior = x;
 // retornar 1: maior = y;
@@ -86,51 +86,75 @@ void fill_list(DList *l, int tam) {
     }
 }
 
-void fill_list_z(DList *x, DList *z/*, DList *y, int smallest*/) {
-    Block *aux_x;
-	//Block *aux_y;;
-	Block *aux_z;
-	// aux = x -> first -> prox -> prox;
-	// cout << aux -> data.val;
-
-	aux_x = x -> first -> prox;
-	aux_z = z -> first -> prox;
-	//aux_y = y -> first -> prox;
-
-	aux_z -> data.val = aux_x -> data.val;
-	cout << endl << "TESTE ->" << aux_z -> data.val;
+bool list_is_empty(DList *l) {
+	if (l -> first == l -> last || l == NULL || l -> first -> prox == NULL){
+		cout << "\t\t\t\tEmpty";
+		return true;
+	} else {
+		cout << "\t\t\t\tNot empty";
+		return false;
+	}
 }
+
+// void list_remove_last(DList *l) {
+
+// }
+
+// void list_remove_first(DList *l) {
+
+// }
+
+// void fill_list_z(DList *biggest, DList *smallest, DList *final/*, int smallest*/) {
+//     Block *aux_biggest;
+// 	Block *aux_smallest;;
+// 	Block *aux_final;
+// 	// aux = x -> first -> prox -> prox;
+// 	// cout << aux -> data.val;
+
+// 	aux_biggest = biggest -> first -> prox;
+// 	aux_smallest = smallest -> first -> prox;
+// 	aux_final = final -> first -> prox;
+
+// 	aux_final -> data.val = aux_biggest -> data.val * aux_smallest -> data.val;
+// 	cout << endl << "TESTE ->" << aux_final -> data.val;
+// }
+
+// void fill_final_list(DList *biggest, DList *smallest, DList *final) {
+
+// }
 
 void problem_1_c() {	
     DList x, y, z;
-    DFLVazia(&x);
+    
+	DFLVazia(&x);
     DFLVazia(&y);
     DFLVazia(&z);
     
-    int tam_x, tam_y, smallest = 0;
+    int tam_x, tam_y;
 
     tam_x = define_list_tam();
     sleep(1);
     tam_y = define_list_tam();
 
-    //cout << "TAMANHO X: " << tam_x << endl << "TAMANHO Y: " << tam_y << endl;
-
-    smallest = define_smallest(tam_x, tam_y);
-    cout << endl << "MENOR: " << smallest << endl;
 	cout << "VALORES DE X" << endl;
     fill_list(&x, tam_x);
     DLImprime(&x);
-    sleep(1);
-    // fill_list(&y, tam_y);
-    // LImprime(&y);
+    
+	sleep(1);
+    
+	cout << "VALORES DE Y" << endl;
+	fill_list(&y, tam_y);
+    DLImprime(&y);
+	
 	DItem aux;
 	aux.val = 30;
     DLInsert(&z, aux);
 
-    // Block *aux;
-    // aux =  -> first;
-    // cout << aux -> prox -> data.val;
-
-    //fill_list_z(&x, &y, &z, smallest);
-	fill_list_z(&x, &z);
+	if (define_smallest(tam_x, tam_y) == 0) { // x = maior
+		//fill_final_list(&x, &y, &z);
+	} else if (define_smallest(tam_x, tam_y) == 1) { // y = maior
+		//fill_final_list(&y, &x, &z);
+	} else { // x = y
+		//fill_final_list(&x, &y, &z);
+	}
 }

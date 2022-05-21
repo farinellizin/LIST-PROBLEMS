@@ -35,6 +35,9 @@ void problem_1_c();
 int define_list_tam();
 int define_smallest(int x, int y);
 void fill_list(DList *l, int tam);
-void fill_list_z(DList *x, DList *z/*, DList *y, int smallest*/);
+void fill_final_list(DList *biggest, DList *smallest, DList *final);
+void list_remove_last(DList *l);
+void list_remove_first(DList *l);
+bool list_is_empty(DList *l);
 
 #endif

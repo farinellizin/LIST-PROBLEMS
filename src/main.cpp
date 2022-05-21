@@ -43,6 +43,18 @@ int main () {
     // LInsert(&a, aux);
     // LImprime(&a);
 
+    DList a;
+    DFLVazia(&a);
+    cout << endl << "\t\tRight now, list must return that it's empty" << endl << endl;
+    list_is_empty(&a);
 
-    problem_1_c();
+    DItem aux;
+    aux.val = 30;
+    DLInsert(&a, aux);
+    cout << endl << endl << endl << "\t\tRight now, list must return that it isn't empty" << endl << endl;
+    list_is_empty(&a); 
+    cout << endl << endl;
+
+
+    //problem_1_c();
 }
