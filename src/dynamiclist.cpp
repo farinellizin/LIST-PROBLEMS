@@ -154,16 +154,20 @@ void fill_final_list(DList *biggest, DList *smallest/*, DList *final*/) {
 	aux_smallest_block = smallest -> last;
 	//while (!list_is_empty(smallest)) {
 		//aux_biggest.val = biggest -> first -> prox -> data.val;
-		cout << endl << "VALUES OF THE BIGGEST LIST: " << endl << endl;
+		cout << endl << endl << "VALUES OF THE BIGGEST LIST: " << endl << endl;
 		aux_biggest.val = aux_biggest_block -> data.val;
 		cout << endl << "\taux.val_biggest[0] = " << aux_biggest.val << endl;
 		aux_biggest_block = aux_biggest_block -> prox;
 		aux_biggest.val = aux_biggest_block -> data.val;
 		cout << endl << "\taux.val_biggest[1] = " << aux_biggest.val << endl << endl;
 
-		cout << "VALUES OF THE SMALLEST LIST: " << endl << endl;
+		cout << endl << "VALUES OF THE SMALLEST LIST: " << endl << endl;
 		aux_smallest.val = aux_smallest_block -> data.val;
-		cout << endl << "\taux.val_smallest[3] = " << aux_smallest.val;
+		cout << endl << "\taux.val_smallest[3] = " << aux_smallest.val << endl;
+		list_remove_last(smallest);
+		aux_smallest_block = smallest -> last;
+		aux_smallest.val = aux_smallest_block -> data.val;
+		cout << endl << "\taux.val_smallest[2] = " << aux_smallest.val << endl;
 	//}
 }
 
