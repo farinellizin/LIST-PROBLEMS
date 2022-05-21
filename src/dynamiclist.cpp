@@ -90,11 +90,11 @@ void fill_list(DList *l, int tam) {
 bool list_is_empty(DList *l) {
 	if (l -> first == l -> last || l == NULL || l -> first -> prox == NULL){
 		// ESTA VAZIA
-		cout << "IS EMPTY";
+		cout << "IS EMPTY" << endl;
 		return true;
 	} else {
 		// NAO ESTA VAZIA
-		cout << "ISN'T EMPTY";
+		cout << "ISN'T EMPTY" << endl;
 		return false;
 	}
 }
