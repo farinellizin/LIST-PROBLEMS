@@ -36,25 +36,48 @@ int main () {
 
     // return 0;
 
+    // TESTING FUNCTION THAT RETURNS IF A LIST IS EMPTY OR NOT
+
     // DList a;
+    // DFLVazia(&a);
+    // cout << endl << "\t\tRight now, list must return that it's empty" << endl << endl;
+    // list_is_empty(&a);
+
     // DItem aux;
-    // FLVazia(&a);
     // aux.val = 30;
-    // LInsert(&a, aux);
-    // LImprime(&a);
+    // DLInsert(&a, aux);
+    // cout << endl << endl << endl << "\t\tRight now, list must return that it isn't empty" << endl << endl;
+    // list_is_empty(&a); 
+    // cout << endl << endl;
+    
+
+    // TESTING FUNCTION THAT REMOVES THE FIRST VALUE OF A LIST
 
     DList a;
     DFLVazia(&a);
-    cout << endl << "\t\tRight now, list must return that it's empty" << endl << endl;
-    list_is_empty(&a);
-
     DItem aux;
-    aux.val = 30;
+
+    aux.val = 10;
+    DLInsert(&a, aux);  
+    
+    aux.val = 4;
     DLInsert(&a, aux);
-    cout << endl << endl << endl << "\t\tRight now, list must return that it isn't empty" << endl << endl;
-    list_is_empty(&a); 
-    cout << endl << endl;
+    
+    aux.val = 19;
+    DLInsert(&a, aux);
+    
+    aux.val = 31;
+    DLInsert(&a, aux);
 
+    cout << "LIST BEFORE FIRST VALUE REMOVAL: " << endl << endl;
+    DLImprime(&a);
+    
+    list_remove_first(&a);
 
+    cout << endl;
+
+    cout << "LIST AFTER FIRST VALUE REMOVAL: " << endl << endl;
+    DLImprime(&a);
+    
     //problem_1_c();
 }

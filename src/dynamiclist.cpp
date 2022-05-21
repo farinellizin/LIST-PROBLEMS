@@ -40,8 +40,9 @@ void DLRemove(DList *l, DItem d){
 			free(aux);
 			aux -> prox = NULL;
 		}
-		else
+		else {
 			aux = aux -> prox;
+		}
 	}
 }
 
@@ -50,7 +51,7 @@ void DLImprime(DList *l){
 
 	aux = l -> first -> prox;
 	while(aux != NULL){
-		cout << aux -> data.val << endl;
+		cout << aux -> data.val << "\t";
 		aux = aux->prox;
 	}
 }
@@ -88,21 +89,28 @@ void fill_list(DList *l, int tam) {
 
 bool list_is_empty(DList *l) {
 	if (l -> first == l -> last || l == NULL || l -> first -> prox == NULL){
-		cout << "\t\t\t\tEmpty";
+		// ESTA VAZIA
+		cout << "IS EMPTY";
 		return true;
 	} else {
-		cout << "\t\t\t\tNot empty";
+		// NAO ESTA VAZIA
+		cout << "ISN'T EMPTY";
 		return false;
 	}
 }
 
 // void list_remove_last(DList *l) {
-
+	
 // }
 
-// void list_remove_first(DList *l) {
+void list_remove_first(DList *l) {
+	Block *aux, *tmp;
 
-// }
+	aux = l -> first;
+	tmp = aux -> prox;
+	l -> first = tmp;
+	free(aux);
+}
 
 // void fill_list_z(DList *biggest, DList *smallest, DList *final/*, int smallest*/) {
 //     Block *aux_biggest;
