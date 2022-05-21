@@ -1,39 +1,34 @@
 #include "linearlist.hpp"
 #include "dynamiclist.hpp"
 
+void run() {
+    char option;
+
+    do { 
+        cout << endl << endl << "-------------------------------------------------------------------------------------";
+        cout << endl << endl << "\t\t\t ~ Welcome to the main menu ~" << endl << endl;
+        cout << "\t\tA. Counting even or odds in a dynamic list;" << endl << "\t\tB. List mini game;" << endl;
+        cout << "\t\tC. Multiplying two lists;" << endl << "\t\tD. Euclidian distance calculation;" << endl;
+        cout << "\t\tE. Exit." << endl << endl << "\t\t\t- Your option: ";
+        cin >> option;
+        option = toupper(option);
+
+        if (option == 'A') {
+            cout << "not ready yet...";
+        } else if (option == 'B') {
+            problem_1_b();
+        } else if (option == 'C') {
+            problem_1_c();
+        } else if (option == 'D') {
+            cout << "not ready yet...";
+        } else {
+            cout << "leaving...";
+        }
+    } while (option != 'E');
+}
+
 int main () {
-    // char option;
-
-    // cout << endl << endl << "\t\t\t ~ Welcome to the main menu ~" << endl << endl;
-    // cout << "\t\tA. Counting even or odds in a dynamic list;" << endl << "\t\tB. List mini game;" << endl;
-    // cout << "\t\tC. Multiplying two lists;" << endl << "\t\tD. Euclidian distance calculation;" << endl;
-    // cout << "\t\tE. Exit." << endl << endl << "\t\t\t- Your option: ";
-    // cin >> option;
-    // option = toupper(option);
-
-    // switch (option) {
-    //     case 'A': 
-    //         cout << "not ready yet...";
-    //         break;
-
-    //     case 'B':
-    //         problem_1_b();
-    //         break;
-
-    //     case 'C':
-    //         problem_1_c();
-    //         //cout << "not ready yet...";
-    //         break;
-
-    //     case 'D':
-    //         cout << "not ready yet...";
-    //         break;
-
-    //     case 'E':
-    //         cout << "leaving...";
-    //         break;
-    // } 
-
+    run();
     // return 0;
 
     // TESTING FUNCTION THAT RETURNS IF A LIST IS EMPTY OR NOT
@@ -178,7 +173,5 @@ int main () {
     // cout << endl << endl << "\t\t- PRINTING FINAL LIST: " << endl << "\t\t";
     // DLImprime(&final);
 
-
-
-    problem_1_c();
+    //problem_1_c();
 }

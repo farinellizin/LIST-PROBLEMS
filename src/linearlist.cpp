@@ -56,11 +56,11 @@ int list_sum(List *list) {
 
 void decide_winner(int sum_list_1, int sum_list_2) {
     if (sum_list_1 > sum_list_2) {
-        cout << "\t\t\t ~ Player 1, you won the game! ~" << endl << endl;
+        cout << "\t\t\t ~ Player 1, you won the game! ~" << endl;
     } else if (sum_list_2 > sum_list_1) {
-        cout << "\t\t\t ~ Player 2, you won the game! ~" << endl << endl;
+        cout << "\t\t\t ~ Player 2, you won the game! ~" << endl;
     } else {
-        cout << "\t\t\t ~ No winners for today, tied game :( ~" << endl << endl;
+        cout << "\t\t\t ~ No winners for today, tied game :( ~" << endl;
     }
 }
 

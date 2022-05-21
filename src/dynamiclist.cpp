@@ -51,7 +51,7 @@ void DLImprime(DList *l){
 
 	aux = l -> first -> prox;
 	while(aux != NULL){
-		cout << aux -> data.val << "\t";
+		cout << "\t\t\t\t      " << aux -> data.val << endl;
 		aux = aux->prox;
 	}
 }
@@ -90,11 +90,9 @@ void fill_list(DList *l, int tam) {
 bool list_is_empty(DList *l) {
 	if (l -> first == l -> last || l == NULL || l -> first -> prox == NULL){
 		// ESTA VAZIA
-		//cout << "IS EMPTY" << endl;
 		return true;
 	} else {
 		// NAO ESTA VAZIA
-		//cout << "ISN'T EMPTY" << endl;
 		return false;
 	}
 }
@@ -125,21 +123,6 @@ void list_remove_first(DList *l) {
 	l -> first = tmp;
 	free(aux);
 }
-
-// void fill_list_z(DList *biggest, DList *smallest, DList *final/*, int smallest*/) {
-//     Block *aux_biggest;
-// 	Block *aux_smallest;;
-// 	Block *aux_final;
-// 	// aux = x -> first -> prox -> prox;
-// 	// cout << aux -> data.val;
-
-// 	aux_biggest = biggest -> first -> prox;
-// 	aux_smallest = smallest -> first -> prox;
-// 	aux_final = final -> first -> prox;
-
-// 	aux_final -> data.val = aux_biggest -> data.val * aux_smallest -> data.val;
-// 	cout << endl << "TESTE ->" << aux_final -> data.val;
-// }
 
 void fill_final_list(DList *biggest, DList *smallest, DList *final) {
 	// posição final da menor
@@ -182,7 +165,9 @@ void fill_final_list(DList *biggest, DList *smallest, DList *final) {
 }
 
 void problem_1_c() {	
-    DList x, y, z;
+    cout << endl << endl << "-------------------------------------------------------------------------------------";
+    cout << endl << endl << "\t\t\t\t    Loading..." << endl << endl;
+	DList x, y, z;
     
 	DFLVazia(&x);
     DFLVazia(&y);
@@ -194,25 +179,34 @@ void problem_1_c() {
     sleep(1);
     tam_y = define_list_tam();
 
-	cout << "VALORES DE X" << endl;
+	cout << endl << "\t\t\t  - This is the first list: " << endl << endl;
+
+	//cout << "VALORES DE X" << endl;
     fill_list(&x, tam_x);
     DLImprime(&x);
     
 	sleep(1);
     
-	cout << endl << "VALORES DE Y" << endl;
+	cout << endl << "\t\t\t  - This is the second list: " << endl << endl;
 	fill_list(&y, tam_y);
     DLImprime(&y);
 
+	cout << endl << "       Now, the lists will be multiplied, following the rule that, if they have" << endl;
+	cout << "      different sizes, the 1st position of the bigger one will multiply the last" << endl;
+	cout << "     position of the smaller one, until the smaller is empty, then all the values" << endl;
+	cout << "      remaining in the bigger one, will be inserted in the end of the new list." << endl << endl;
+
 	if (define_smallest(tam_x, tam_y) == 0) { // x = maior
+		cout << endl << "\t\t      ~ The smallest list is the 2nd one ~" << endl;
 		fill_final_list(&x, &y, &z);
 	} else if (define_smallest(tam_x, tam_y) == 1) { // y = maior
+		cout << endl << "\t\t      ~ The smallest list is the 1st one ~" << endl;
 		fill_final_list(&y, &x, &z);
 	} else { // x = y
+		cout << endl << "\t\t      ~ Both lists have the same size ~" << endl;
 		fill_final_list(&x, &y, &z);
 	}
 
-	cout << endl << "VALORES NA LISTA FINAL" << endl;
+	cout << "\t\t\t    This is the final list: " << endl << endl;
 	DLImprime(&z);
-	cout << endl;
 }
