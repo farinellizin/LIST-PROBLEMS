@@ -137,9 +137,10 @@ int main () {
 
     // TESTING FUNCTION TO MULTIPLY THE LAST VALUE OF A SMALLER LIST TO THE FIRST VALUE OF A BIGGER ONE 
 
-    DList maior, menor;
+    DList maior, menor, final;
     DFLVazia(&maior);
     DFLVazia(&menor);
+    DFLVazia(&final);
     DItem aux;
 
     aux.val = 10;
@@ -172,7 +173,10 @@ int main () {
     cout << endl << endl << "\t\t- PRINTING SECOND LIST: " << endl << "\t\t";
     DLImprime(&menor);
 
-    fill_final_list(&maior, &menor);
+    fill_final_list(&maior, &menor, &final);
+
+    cout << endl << endl << "\t\t- PRINTING FINAL LIST: " << endl << "\t\t";
+    DLImprime(&final);
 
 
 

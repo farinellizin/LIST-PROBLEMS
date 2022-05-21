@@ -90,11 +90,11 @@ void fill_list(DList *l, int tam) {
 bool list_is_empty(DList *l) {
 	if (l -> first == l -> last || l == NULL || l -> first -> prox == NULL){
 		// ESTA VAZIA
-		cout << "IS EMPTY" << endl;
+		//cout << "IS EMPTY" << endl;
 		return true;
 	} else {
 		// NAO ESTA VAZIA
-		cout << "ISN'T EMPTY" << endl;
+		//cout << "ISN'T EMPTY" << endl;
 		return false;
 	}
 }
@@ -141,34 +141,51 @@ void list_remove_first(DList *l) {
 // 	cout << endl << "TESTE ->" << aux_final -> data.val;
 // }
 
-void fill_final_list(DList *biggest, DList *smallest/*, DList *final*/) {
+void fill_final_list(DList *biggest, DList *smallest, DList *final) {
 	// posição final da menor
 	// posição inicial da maior
 	
 	DItem aux_biggest;
 	DItem aux_smallest;
-	//DItem aux_final;
+	DItem aux_final;
+	
 	Block *aux_biggest_block;
 	Block *aux_smallest_block;
+	//Block *aux_final_block;
+
 	aux_biggest_block = biggest -> first -> prox;
 	aux_smallest_block = smallest -> last;
 	//while (!list_is_empty(smallest)) {
 		//aux_biggest.val = biggest -> first -> prox -> data.val;
-		cout << endl << endl << "VALUES OF THE BIGGEST LIST: " << endl << endl;
-		aux_biggest.val = aux_biggest_block -> data.val;
-		cout << endl << "\taux.val_biggest[0] = " << aux_biggest.val << endl;
-		aux_biggest_block = aux_biggest_block -> prox;
-		aux_biggest.val = aux_biggest_block -> data.val;
-		cout << endl << "\taux.val_biggest[1] = " << aux_biggest.val << endl << endl;
+		// cout << endl << endl << "VALUES OF THE BIGGEST LIST: " << endl << endl;
+		// aux_biggest.val = aux_biggest_block -> data.val;
+		// cout << endl << "\taux.val_biggest[0] = " << aux_biggest.val << endl;
+		// aux_biggest_block = aux_biggest_block -> prox;
+		// aux_biggest.val = aux_biggest_block -> data.val;
+		// cout << endl << "\taux.val_biggest[1] = " << aux_biggest.val << endl << endl;
 
-		cout << endl << "VALUES OF THE SMALLEST LIST: " << endl << endl;
-		aux_smallest.val = aux_smallest_block -> data.val;
-		cout << endl << "\taux.val_smallest[3] = " << aux_smallest.val << endl;
-		list_remove_last(smallest);
+		// cout << endl << "VALUES OF THE SMALLEST LIST: " << endl << endl;
+		// aux_smallest.val = aux_smallest_block -> data.val;
+		// cout << endl << "\taux.val_smallest[3] = " << aux_smallest.val << endl;
+		// list_remove_last(smallest);
+		// aux_smallest_block = smallest -> last;
+		// aux_smallest.val = aux_smallest_block -> data.val;
+		// cout << endl << "\taux.val_smallest[2] = " << aux_smallest.val << endl;
+	//}
+
+	while (!list_is_empty(smallest)) {
+		aux_biggest.val = aux_biggest_block -> data.val;
+		aux_biggest_block = aux_biggest_block -> prox;
+		
 		aux_smallest_block = smallest -> last;
 		aux_smallest.val = aux_smallest_block -> data.val;
-		cout << endl << "\taux.val_smallest[2] = " << aux_smallest.val << endl;
-	//}
+		
+		aux_final.val = aux_biggest.val * aux_smallest.val;
+		DLInsert(final, aux_final);
+
+		list_remove_first(biggest);
+		list_remove_last(smallest);
+	}
 }
 
 void problem_1_c() {	
