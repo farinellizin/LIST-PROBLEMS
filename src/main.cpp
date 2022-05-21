@@ -137,48 +137,48 @@ int main () {
 
     // TESTING FUNCTION TO MULTIPLY THE LAST VALUE OF A SMALLER LIST TO THE FIRST VALUE OF A BIGGER ONE 
 
-    DList maior, menor, final;
-    DFLVazia(&maior);
-    DFLVazia(&menor);
-    DFLVazia(&final);
-    DItem aux;
+    // DList maior, menor, final;
+    // DFLVazia(&maior);
+    // DFLVazia(&menor);
+    // DFLVazia(&final);
+    // DItem aux;
 
-    aux.val = 10;
-    DLInsert(&maior, aux);  
+    // aux.val = 10;
+    // DLInsert(&maior, aux);  
     
-    aux.val = 4;
-    DLInsert(&maior, aux);
+    // aux.val = 4;
+    // DLInsert(&maior, aux);
     
-    aux.val = 19;
-    DLInsert(&maior, aux);
+    // aux.val = 19;
+    // DLInsert(&maior, aux);
     
-    aux.val = 31;
-    DLInsert(&maior, aux);
+    // aux.val = 31;
+    // DLInsert(&maior, aux);
 
-    cout << endl << endl << "\t\t- PRINTING FIRST LIST: " << endl << "\t\t";
-    DLImprime(&maior);
+    // cout << endl << endl << "\t\t- PRINTING FIRST LIST: " << endl << "\t\t";
+    // DLImprime(&maior);
 
-    aux.val = 21;
-    DLInsert(&menor, aux);  
+    // aux.val = 21;
+    // DLInsert(&menor, aux);  
     
-    aux.val = 19;
-    DLInsert(&menor, aux);
+    // aux.val = 19;
+    // DLInsert(&menor, aux);
     
-    aux.val = 40;
-    DLInsert(&menor, aux);
+    // aux.val = 40;
+    // DLInsert(&menor, aux);
     
-    aux.val = 78;
-    DLInsert(&menor, aux);
+    // aux.val = 78;
+    // DLInsert(&menor, aux);
 
-    cout << endl << endl << "\t\t- PRINTING SECOND LIST: " << endl << "\t\t";
-    DLImprime(&menor);
+    // cout << endl << endl << "\t\t- PRINTING SECOND LIST: " << endl << "\t\t";
+    // DLImprime(&menor);
 
-    fill_final_list(&maior, &menor, &final);
+    // fill_final_list(&maior, &menor, &final);
 
-    cout << endl << endl << "\t\t- PRINTING FINAL LIST: " << endl << "\t\t";
-    DLImprime(&final);
+    // cout << endl << endl << "\t\t- PRINTING FINAL LIST: " << endl << "\t\t";
+    // DLImprime(&final);
 
 
 
-    //problem_1_c();
+    problem_1_c();
 }

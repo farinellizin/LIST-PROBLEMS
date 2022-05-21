@@ -151,27 +151,9 @@ void fill_final_list(DList *biggest, DList *smallest, DList *final) {
 	
 	Block *aux_biggest_block;
 	Block *aux_smallest_block;
-	//Block *aux_final_block;
 
 	aux_biggest_block = biggest -> first -> prox;
 	aux_smallest_block = smallest -> last;
-	//while (!list_is_empty(smallest)) {
-		//aux_biggest.val = biggest -> first -> prox -> data.val;
-		// cout << endl << endl << "VALUES OF THE BIGGEST LIST: " << endl << endl;
-		// aux_biggest.val = aux_biggest_block -> data.val;
-		// cout << endl << "\taux.val_biggest[0] = " << aux_biggest.val << endl;
-		// aux_biggest_block = aux_biggest_block -> prox;
-		// aux_biggest.val = aux_biggest_block -> data.val;
-		// cout << endl << "\taux.val_biggest[1] = " << aux_biggest.val << endl << endl;
-
-		// cout << endl << "VALUES OF THE SMALLEST LIST: " << endl << endl;
-		// aux_smallest.val = aux_smallest_block -> data.val;
-		// cout << endl << "\taux.val_smallest[3] = " << aux_smallest.val << endl;
-		// list_remove_last(smallest);
-		// aux_smallest_block = smallest -> last;
-		// aux_smallest.val = aux_smallest_block -> data.val;
-		// cout << endl << "\taux.val_smallest[2] = " << aux_smallest.val << endl;
-	//}
 
 	while (!list_is_empty(smallest)) {
 		aux_biggest.val = aux_biggest_block -> data.val;
@@ -186,6 +168,8 @@ void fill_final_list(DList *biggest, DList *smallest, DList *final) {
 		list_remove_first(biggest);
 		list_remove_last(smallest);
 	}
+
+	//if (!list_is_empty(biggest))
 }
 
 void problem_1_c() {	
@@ -207,19 +191,19 @@ void problem_1_c() {
     
 	sleep(1);
     
-	cout << "VALORES DE Y" << endl;
+	cout << endl << "VALORES DE Y" << endl;
 	fill_list(&y, tam_y);
     DLImprime(&y);
-	
-	DItem aux;
-	aux.val = 30;
-    DLInsert(&z, aux);
 
 	if (define_smallest(tam_x, tam_y) == 0) { // x = maior
-		//fill_final_list(&x, &y, &z);
+		fill_final_list(&x, &y, &z);
 	} else if (define_smallest(tam_x, tam_y) == 1) { // y = maior
-		//fill_final_list(&y, &x, &z);
+		fill_final_list(&y, &x, &z);
 	} else { // x = y
-		//fill_final_list(&x, &y, &z);
+		fill_final_list(&x, &y, &z);
 	}
+
+	cout << endl << "VALORES NA LISTA FINAL" << endl;
+	DLImprime(&z);
+	cout << endl;
 }
