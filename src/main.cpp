@@ -128,34 +128,12 @@ int main () {
     cout << "LIST BEFORE LAST VALUE REMOVAL: " << endl << endl;
     DLImprime(&a);
     cout << endl;
-
-    list_remove_last(&a);
-
-    cout << endl;
-
-    cout << "LIST AFTER LAST VALUE REMOVAL: " << endl << endl;
-    DLImprime(&a);
-
-    list_remove_last(&a);
-
-    cout << endl;
-
-    cout << "LIST AFTER LAST VALUE REMOVAL: " << endl << endl;
-    DLImprime(&a);
-
-    list_remove_last(&a);
-
-    cout << endl;
-
-    cout << "LIST AFTER LAST VALUE REMOVAL: " << endl << endl;
-    DLImprime(&a);
-
-    list_remove_last(&a);
-
-    cout << endl;
-
-    cout << "LIST AFTER LAST VALUE REMOVAL: " << endl << endl;
-    DLImprime(&a);
+    
+    while (!list_is_empty(&a)) {
+        cout << endl << endl << "LIST WHILE IT'S VALUES ARE BEING REMOVED: " << endl << endl;
+        list_remove_last(&a);
+        DLImprime(&a);
+    }
 
     
 
