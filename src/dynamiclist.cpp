@@ -169,7 +169,16 @@ void fill_final_list(DList *biggest, DList *smallest, DList *final) {
 		list_remove_last(smallest);
 	}
 
-	//if (!list_is_empty(biggest))
+	if (!list_is_empty(biggest)) {
+		while (!list_is_empty(biggest)) {
+			aux_biggest.val = aux_biggest_block -> data.val;
+			aux_biggest_block = aux_biggest_block -> prox;
+			
+			aux_final.val = aux_biggest.val;
+			DLInsert(final, aux_final);
+			list_remove_first(biggest);
+		}
+	}
 }
 
 void problem_1_c() {	
