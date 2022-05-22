@@ -93,9 +93,9 @@ void problem_1_b() {
     sequencial_reading(&list_1, &list_2);
     
     sum_list_1 = list_sum(&list_1);
-    cout << "\t\t- Player 1, your cards value's is: " << sum_list_1 << endl;
+    cout << "\t\t- Player 1, your cards' sum is: " << sum_list_1 << endl;
     sum_list_2 = list_sum(&list_2);
-    cout << "\t\t- Player 2, your cards value's is: " << sum_list_2 << endl << endl;
+    cout << "\t\t- Player 2, your cards' sum is: " << sum_list_2 << endl << endl;
 
     decide_winner(sum_list_1, sum_list_2);
 }
