@@ -47,6 +47,6 @@ bool list_is_empty(DList *l);
 void problem_1_a();
 // fill_list(DLIst *l, int tam);
 // define_list_tam();
-void break_apart_even_odd(DList *main/*, DList *even, DList *odd*/);
+void break_apart_even_odd(DList *main, DList *even, DList *odd);
 
 #endif

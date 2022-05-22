@@ -211,7 +211,7 @@ void problem_1_c() {
 	DLImprime(&z);
 }
 
-void break_apart_even_odd(DList *main/*, DList *even, DList *odd*/) {
+void break_apart_even_odd(DList *main, DList *even, DList *odd) {
 	Block *aux_final_block;
 	DItem aux_final;
 	int cont_even = 0, cont_odd = 0;
@@ -225,10 +225,10 @@ void break_apart_even_odd(DList *main/*, DList *even, DList *odd*/) {
 
 		if ((aux_final.val % 2) == 0) {
 			cont_even++;
-			cout << aux_final.val << endl;
+			DLInsert(even, aux_final);
 		} else {
 			cont_odd++;
-			cout << aux_final.val << endl;
+			DLInsert(odd, aux_final);
 		}
 	}
 
@@ -255,6 +255,10 @@ void problem_1_a() {
 	fill_list(&main_list, main_list_size);
 	DLImprime(&main_list);
 	cout << endl << endl;
-	break_apart_even_odd(&main_list/*, &even_list, &odd_list*/);
+	break_apart_even_odd(&main_list, &even_list, &odd_list);
+	cout << "\t\t\tEVEN VALUES: " << endl << endl;
+	DLImprime(&even_list);
+	cout << "\t\t\tODD VALUES: " << endl << endl;
+	DLImprime(&odd_list);
 
 }
