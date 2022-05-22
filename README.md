@@ -131,7 +131,7 @@ void fill_list_ramdomly(List *l) {
     }
 }
 ```
-Sendo as **Listas** definitamente preenchidas por:
+Sendo as **Listas** definitivamente preenchidas por:
 ```c++
 fill_list_ramdomly(&list_1);
 sleep(1);
@@ -244,3 +244,6 @@ void problem_1_b() {
 ```
     
 ### Exemplo de execução
+<p align="center">
+ <img height="500px" src="/imgs/Exec_1_B.gif">
+</p>
