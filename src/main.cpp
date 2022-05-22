@@ -28,7 +28,7 @@ void run() {
 }
 
 int main () {
-    run();
+    //run();
     // return 0;
 
     // TESTING FUNCTION THAT RETURNS IF A LIST IS EMPTY OR NOT
@@ -174,4 +174,5 @@ int main () {
     // DLImprime(&final);
 
     //problem_1_c();
+    problem_1_a();
 }

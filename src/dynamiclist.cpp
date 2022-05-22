@@ -210,3 +210,51 @@ void problem_1_c() {
 	cout << "\t\t\t    This is the final list: " << endl << endl;
 	DLImprime(&z);
 }
+
+void break_apart_even_odd(DList *main/*, DList *even, DList *odd*/) {
+	Block *aux_final_block;
+	DItem aux_final;
+	int cont_even = 0, cont_odd = 0;
+
+	aux_final_block = main -> first;
+	aux_final.val = aux_final_block -> data.val;
+
+	while (aux_final_block -> prox != NULL) {
+		aux_final_block = aux_final_block -> prox;
+		aux_final.val = aux_final_block -> data.val;
+
+		if ((aux_final.val % 2) == 0) {
+			cont_even++;
+			cout << aux_final.val << endl;
+		} else {
+			cont_odd++;
+			cout << aux_final.val << endl;
+		}
+	}
+
+	cout << "Numbers of evens: " << cont_even;
+	cout << endl << "Numerbs of odds: " << cont_odd << endl;
+	
+}
+
+void problem_1_a() {
+	// NUMERO ALEATÓRIO PARA DEFINIR O TAMANHO DA LISTA DINAMICA
+	// PREENCHER A LISTA DINAMICA COM NUMEROS ALEATORIOS
+	// DEFINIR QUAIS ELEMENTOS SAO PARES E QUAIS SAO IMPARES
+	// JOGAR ELEMENTOS PARES EM UMA LISTA E IMPARES EM OUTRAS
+
+	DList main_list, even_list, odd_list;
+	DFLVazia(&main_list);
+	DFLVazia(&even_list); // par
+	DFLVazia(&odd_list); // impar
+
+	int main_list_size;
+	main_list_size = define_list_tam();
+
+	cout << "\t\t\tVALUES IN THE MAIN LIST: " << endl << endl;
+	fill_list(&main_list, main_list_size);
+	DLImprime(&main_list);
+	cout << endl << endl;
+	break_apart_even_odd(&main_list/*, &even_list, &odd_list*/);
+
+}
