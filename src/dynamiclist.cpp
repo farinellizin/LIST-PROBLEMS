@@ -9,13 +9,13 @@ void DSwap(Block *a, Block *b){
 }
 
 void DFLVazia(DList *l){
-	l -> first = (Block*) malloc (sizeof(Block));
+	l -> first = new Block;
 	l -> last  = l -> first;
 	l -> first -> prox = NULL;
 }
 
 void DLInsert(DList *l, DItem d){
-	l -> last -> prox = (Block*) malloc (sizeof(Block));
+	l -> last -> prox = new Block;
 	l -> last = l -> last -> prox;
 	l -> last -> data = d;
 	l -> last -> prox = NULL;
@@ -59,7 +59,7 @@ void DLImprime(DList *l){
 int define_list_tam() {
     int tam;
     srand(time(NULL));
-    tam = rand() % 10 + 1;
+    tam = rand() % 10 + 2;
 
     return tam;
 }
@@ -125,9 +125,6 @@ void list_remove_first(DList *l) {
 }
 
 void fill_final_list(DList *biggest, DList *smallest, DList *final) {
-	// posição final da menor
-	// posição inicial da maior
-	
 	DItem aux_biggest;
 	DItem aux_smallest;
 	DItem aux_final;
@@ -181,7 +178,6 @@ void problem_1_c() {
 
 	cout << endl << "\t\t\t  - This is the first list: " << endl << endl;
 
-	//cout << "VALORES DE X" << endl;
     fill_list(&x, tam_x);
     DLImprime(&x);
     
@@ -232,26 +228,21 @@ void break_apart_even_odd(DList *main, DList *even, DList *odd) {
 		}
 	}
 
-	cout << "Numbers of evens: " << cont_even;
-	cout << endl << "Numerbs of odds: " << cont_odd << endl;
+	cout << "\n\n\t\t\t\tNumbers of evens: " << cont_even;
+	cout << endl << "\t\t\t\tNumerbs of odds: " << cont_odd << endl << endl;
 	
 }
 
 void problem_1_a() {
-	// NUMERO ALEATÓRIO PARA DEFINIR O TAMANHO DA LISTA DINAMICA
-	// PREENCHER A LISTA DINAMICA COM NUMEROS ALEATORIOS
-	// DEFINIR QUAIS ELEMENTOS SAO PARES E QUAIS SAO IMPARES
-	// JOGAR ELEMENTOS PARES EM UMA LISTA E IMPARES EM OUTRAS
-
 	DList main_list, even_list, odd_list;
 	DFLVazia(&main_list);
-	DFLVazia(&even_list); // par
-	DFLVazia(&odd_list); // impar
+	DFLVazia(&even_list); 
+	DFLVazia(&odd_list); 
 
 	int main_list_size;
 	main_list_size = define_list_tam();
 
-	cout << "\t\t\tVALUES IN THE MAIN LIST: " << endl << endl;
+	cout << "\n\n\t\t\tVALUES IN THE MAIN LIST: " << endl << endl;
 	fill_list(&main_list, main_list_size);
 	DLImprime(&main_list);
 	cout << endl << endl;
@@ -260,5 +251,96 @@ void problem_1_a() {
 	DLImprime(&even_list);
 	cout << "\t\t\tODD VALUES: " << endl << endl;
 	DLImprime(&odd_list);
+}
 
+void euclidean_calc(DList *list_x, DList *list_y, DList *euclidean_list, int tam) {
+	Block *auxx, *auxy;
+	int aux_x, aux_y;
+	float distance;
+	DItem aux;
+
+	auxx = list_x -> first -> prox;
+	auxy = list_y -> first -> prox;
+
+	while (auxx != NULL) {
+		aux_x = auxx -> data.val;
+		aux_y = auxy -> data.val;
+
+		distance = sqrt(pow(abs(tam - aux_x), 2) + pow(abs(7 - aux_y), 2));
+		aux.distance = distance;
+		aux.val_x = aux_x;
+		aux.val_y = aux_y;
+		aux.val = 0;
+
+		DLInsert(euclidean_list, aux);
+
+		auxx = auxx -> prox;
+		auxy = auxy -> prox;
+	}
+}
+
+void euclidean_print(DList *l) {
+    Block *aux;
+
+    aux = l -> first -> prox;
+
+    while (aux != NULL) {
+        cout << "\t\t\t   " << aux -> data.distance;
+        cout << "\t\t      " << aux -> data.val_x;
+        cout << "\t\t\t    " << aux -> data.val_y << "\t\t" << endl;
+        aux = aux -> prox;
+    }
+}
+
+void euclidean_sort(DList *l) {
+    Block *i, *j;
+
+    i = l -> first -> prox;
+
+    while (i != NULL) {
+        j = i -> prox;
+        while (j != NULL) {
+            if (j -> data.distance < i -> data.distance) {
+                swap(i, j);
+            }
+            j = j -> prox;
+        }
+        i = i -> prox;
+    }
+}
+
+void closest_pairs(DList *euclidean_list, int tam) {
+	Block *aux = euclidean_list->first->prox;
+
+	cout << "\n\n\t\t\t\tThese are the " << (tam / 2) << " closest pairs: " << endl << endl;
+	cout << "\t\tEuclidean Distance \t\t X Value \t\t Y Value\n\n";
+	for (int i = 0; i < (tam / 2); i++) {
+		cout << "\t\t\t" << aux->data.distance << "\t\t\t   " << aux->data.val_x << "\t\t\t    " << aux->data.val_y << endl;
+		aux = aux -> prox;
+	}
+}
+
+void problem_1_d() {
+	int tam = define_list_tam();
+	cout << "\t\tThis is the size both lists are going to have: " << endl << endl << "\t\t\t\t\t" << tam << endl;
+
+	DList list_x, list_y, euclidean_list;
+	DFLVazia(&list_x);
+	DFLVazia(&list_y);
+	DFLVazia(&euclidean_list);
+
+	fill_list(&list_x, tam);
+	sleep(1);
+	fill_list(&list_y, tam);
+
+	cout << "\n\n\t\t\t     This is your X list: " << endl << endl;
+	DLImprime(&list_x);
+	cout << "\n\n\t\t\t     This is your Y list: " << endl << endl;
+	DLImprime(&list_y);
+
+	euclidean_calc(&list_x, &list_y, &euclidean_list, tam);
+
+	euclidean_sort(&euclidean_list);
+	closest_pairs(&euclidean_list, tam);
+	cout << endl << endl;
 }
